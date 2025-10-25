@@ -9,4 +9,6 @@ RUN chmod a+x /run.sh
 
 WORKDIR /app
 
+# Override entrypoint and cmd from base image
+ENTRYPOINT []
 CMD [ "/run.sh" ]
