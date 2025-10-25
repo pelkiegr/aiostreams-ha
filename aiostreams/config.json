@@ -20,7 +20,9 @@
     "secret_key": "",
     "addon_password": "",
     "database_uri": "sqlite://./data/db.sqlite",
-    "base_url": ""
+    "base_url": "",
+    "tmdb_access_token": "",
+    "log_level": "info"
   },
   "schema": {
     "addon_name": {
