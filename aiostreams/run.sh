@@ -1,17 +1,21 @@
-#!/usr/bin/with-contenv bashio
+#!/bin/bash
+set -e
+
+CONFIG_PATH=/data/options.json
 
 # Read config from Home Assistant
-export ADDON_NAME=$(bashio::config 'addon_name')
-export ADDON_ID=$(bashio::config 'addon_id')
-export SECRET_KEY=$(bashio::config 'secret_key')
-export ADDON_PASSWORD=$(bashio::config 'addon_password')
-export DATABASE_URI=$(bashio::config 'database_uri')
-export BASE_URL=$(bashio::config 'base_url')
+export ADDON_NAME=$(jq -r '.addon_name // "AIOStreams"' $CONFIG_PATH)
+export ADDON_ID=$(jq -r '.addon_id // "aiostreams.homeassistant.local"' $CONFIG_PATH)
+export SECRET_KEY=$(jq -r '.secret_key // ""' $CONFIG_PATH)
+export ADDON_PASSWORD=$(jq -r '.addon_password // ""' $CONFIG_PATH)
+export DATABASE_URI=$(jq -r '.database_uri // "sqlite://./data/db.sqlite"' $CONFIG_PATH)
+export BASE_URL=$(jq -r '.base_url // ""' $CONFIG_PATH)
 export PORT=3000
-export TMDB_ACCESS_TOKEN=$(bashio::config 'tmdb_access_token')
-export LOG_LEVEL=$(bashio::config 'log_level')
+export TMDB_ACCESS_TOKEN=$(jq -r '.tmdb_access_token // ""' $CONFIG_PATH)
+export LOG_LEVEL=$(jq -r '.log_level // "info"' $CONFIG_PATH)
 
-bashio::log.info "Starting AIOStreams..."
+echo "[INFO] Starting AIOStreams..."
+echo "[INFO] Addon: $ADDON_NAME ($ADDON_ID)"
 
 # Start the application
 cd /app
