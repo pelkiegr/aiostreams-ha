@@ -25,44 +25,14 @@
     "log_level": "info"
   },
   "schema": {
-    "addon_name": {
-      "type": "str",
-      "description": "Descriptive name for your addon instance"
-    },
-    "addon_id": {
-      "type": "str",
-      "description": "Unique identifier for your addon"
-    },
-    "secret_key": {
-      "type": "password",
-      "description": "REQUIRED: 64-character hex string for encryption (generate with: openssl rand -hex 32)"
-    },
-    "addon_password": {
-      "type": "password",
-      "optional": true,
-      "description": "API key to protect your addon (comma-separated for multiple passwords)"
-    },
-    "database_uri": {
-      "type": "str",
-      "description": "Database URI (SQLite or PostgreSQL)"
-    },
-    "base_url": {
-      "type": "str",
-      "optional": true,
-      "description": "Base URL of your addon (e.g., https://homeassistant.local:8123/api/hassio_ingress/...)"
-    },
-    "tmdb_access_token": {
-      "type": "password",
-      "optional": true,
-      "description": "TMDB Access Token for title matching"
-    },
-    "log_level": {
-      "type": "list",
-      "optional": true,
-      "default": "info",
-      "options": ["error", "warn", "info", "http", "verbose", "debug", "silly"],
-      "description": "Log verbosity level"
-    }
+    "addon_name": "str",
+    "addon_id": "str",
+    "secret_key": "password",
+    "addon_password": "password?",
+    "database_uri": "str",
+    "base_url": "str?",
+    "tmdb_access_token": "password?",
+    "log_level": "list(error|warn|info|http|verbose|debug|silly)?"
   },
   "environment": {
     "ADDON_NAME": "{{addon_name}}",
