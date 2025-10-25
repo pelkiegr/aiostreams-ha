@@ -1,0 +1,78 @@
+{
+  "name": "AIOStreams",
+  "version": "0.1.2",
+  "slug": "aiostreams",
+  "description": "Self-hosted AIOStreams for Stremio with HA Ingress support.",
+  "url": "https://github.com/Viren070/AIOStreams",
+  "arch": ["aarch64", "amd64"],
+  "image": "ghcr.io/viren070/aiostreams",
+  "startup": "services",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 3000,
+  "ports": {
+    "3000/tcp": 3000
+  },
+  "map": ["config:rw"],
+  "options": {
+    "addon_name": "AIOStreams",
+    "addon_id": "aiostreams.homeassistant.local",
+    "secret_key": "",
+    "addon_password": "",
+    "database_uri": "sqlite://./data/db.sqlite",
+    "base_url": ""
+  },
+  "schema": {
+    "addon_name": {
+      "type": "str",
+      "description": "Descriptive name for your addon instance"
+    },
+    "addon_id": {
+      "type": "str",
+      "description": "Unique identifier for your addon"
+    },
+    "secret_key": {
+      "type": "password",
+      "description": "REQUIRED: 64-character hex string for encryption (generate with: openssl rand -hex 32)"
+    },
+    "addon_password": {
+      "type": "password",
+      "optional": true,
+      "description": "API key to protect your addon (comma-separated for multiple passwords)"
+    },
+    "database_uri": {
+      "type": "str",
+      "description": "Database URI (SQLite or PostgreSQL)"
+    },
+    "base_url": {
+      "type": "str",
+      "optional": true,
+      "description": "Base URL of your addon (e.g., https://homeassistant.local:8123/api/hassio_ingress/...)"
+    },
+    "tmdb_access_token": {
+      "type": "password",
+      "optional": true,
+      "description": "TMDB Access Token for title matching"
+    },
+    "log_level": {
+      "type": "list",
+      "optional": true,
+      "default": "info",
+      "options": ["error", "warn", "info", "http", "verbose", "debug", "silly"],
+      "description": "Log verbosity level"
+    }
+  },
+  "environment": {
+    "ADDON_NAME": "addon_name",
+    "ADDON_ID": "addon_id",
+    "SECRET_KEY": "secret_key",
+    "ADDON_PASSWORD": "addon_password",
+    "DATABASE_URI": "database_uri",
+    "BASE_URL": "base_url",
+    "PORT": "3000",
+    "TMDB_ACCESS_TOKEN": "tmdb_access_token",
+    "LOG_LEVEL": "log_level"
+  },
+  "panel_icon": "mdi:movie-open",
+  "panel_title": "AIOStreams"
+}
