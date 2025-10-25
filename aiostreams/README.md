@@ -20,7 +20,7 @@ Self-hosted AIOStreams for Stremio with Home Assistant Ingress support.
 
 1. Add this repository to your Home Assistant:
    - Go to **Supervisor** → **Add-on Store** → **⋮** (three dots) → **Repositories**
-   - Add: `https://github.com/YOUR-USERNAME/ha-aiostreams-addon`
+   - Add: `https://github.com/pelkiegr/aiostreams-ha`
 2. Find **AIOStreams** in the add-on store
 3. Click **Install**
 4. Generate a SECRET_KEY and add it to the configuration
