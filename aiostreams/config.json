@@ -1,11 +1,10 @@
 {
   "name": "AIOStreams",
-  "version": "v2.16.2",
+  "version": "2.16.2",
   "slug": "aiostreams",
-  "description": "Self-hosted AIOStreams for Stremio with HA Ingress support.",
+  "description": "Self-hosted AIOStreams for Stremio with HA Ingress support",
   "url": "https://github.com/Viren070/AIOStreams",
   "arch": ["aarch64", "amd64"],
-  "image": "ghcr.io/viren070/aiostreams",
   "startup": "services",
   "boot": "auto",
   "ingress": true,
@@ -33,17 +32,6 @@
     "base_url": "str?",
     "tmdb_access_token": "password?",
     "log_level": "list(error|warn|info|http|verbose|debug|silly)?"
-  },
-  "environment": {
-    "ADDON_NAME": "{{addon_name}}",
-    "ADDON_ID": "{{addon_id}}",
-    "SECRET_KEY": "{{secret_key}}",
-    "ADDON_PASSWORD": "{{addon_password}}",
-    "DATABASE_URI": "{{database_uri}}",
-    "BASE_URL": "{{base_url}}",
-    "PORT": "3000",
-    "TMDB_ACCESS_TOKEN": "{{tmdb_access_token}}",
-    "LOG_LEVEL": "{{log_level}}"
   },
   "panel_icon": "mdi:movie-open",
   "panel_title": "AIOStreams"
