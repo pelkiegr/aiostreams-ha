@@ -1,6 +1,6 @@
 {
   "name": "AIOStreams",
-  "version": "0.1.2",
+  "version": "v2.16.2",
   "slug": "aiostreams",
   "description": "Self-hosted AIOStreams for Stremio with HA Ingress support.",
   "url": "https://github.com/Viren070/AIOStreams",
